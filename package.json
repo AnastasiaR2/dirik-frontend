@@ -11,6 +11,8 @@
     "lint:css": "npx stylelint \"src/**/*.scss\"",
     "lint:prettify": "prettier --check \"**/*.{ts,tsx,json,md,scss,html}\"",
     "lint": "npm run lint:editor && npm run lint:fs && npm run lint:type && npm run lint:js && npm run lint:css && npm run lint:prettify",
+    "fix:css": "npx stylelint --fix \"src/**/*.scss\"",
+    "prettify": "prettier --write \"**/*.{ts,tsx,json,md,scss,html}\"",
     "start:dev": "vite",
     "build": "tsc --build --clean && vite build",
     "preview": "vite preview"
