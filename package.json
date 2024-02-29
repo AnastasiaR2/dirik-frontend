@@ -1,0 +1,57 @@
+{
+  "name": "dirik-frontend",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "lint:editor": "editorconfig-checker",
+    "lint:fs": "ls-lint",
+    "lint:type": "npx tsc --noEmit",
+    "lint:js": "npx eslint \"**/*.{ts,tsx}\" --max-warnings=0",
+    "lint:css": "npx stylelint \"src/**/*.scss\"",
+    "lint:prettify": "prettier --check \"**/*.{ts,tsx,json,md,scss,html}\"",
+    "lint": "npm run lint:editor && npm run lint:fs && npm run lint:type && npm run lint:js && npm run lint:css && npm run lint:prettify",
+    "start:dev": "vite",
+    "build": "tsc --build --clean && vite build",
+    "preview": "vite preview"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "npx lint-staged"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@ls-lint/ls-lint": "^2.2.2",
+    "@stylistic/eslint-plugin": "^1.6.3",
+    "@types/node": "^20.11.23",
+    "@types/react": "^18.2.56",
+    "@types/react-dom": "^18.2.19",
+    "@typescript-eslint/eslint-plugin": "^7.0.2",
+    "@typescript-eslint/parser": "^7.0.2",
+    "@vitejs/plugin-react": "^4.2.1",
+    "editorconfig-checker": "^5.1.4",
+    "eslint": "^8.56.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-import": "^2.29.1",
+    "eslint-plugin-prettier": "^5.1.3",
+    "eslint-plugin-react": "^7.33.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-refresh": "^0.4.5",
+    "eslint-plugin-simple-import-sort": "^12.0.0",
+    "eslint-plugin-sonarjs": "^0.24.0",
+    "eslint-plugin-unicorn": "^51.0.1",
+    "lint-staged": "^15.2.2",
+    "prettier": "^3.2.5",
+    "sass": "^1.71.1",
+    "simple-git-hooks": "^2.9.0",
+    "stylelint": "^16.2.1",
+    "stylelint-config-recess-order": "^4.6.0",
+    "stylelint-config-standard-scss": "^13.0.0",
+    "typescript": "^5.2.2",
+    "typescript-plugin-css-modules": "^5.1.0",
+    "vite": "^5.1.4",
+    "vite-tsconfig-paths": "^4.3.1"
+  }
+}
