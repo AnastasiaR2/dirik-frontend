@@ -1,9 +1,9 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 
-import { RouterProvider } from '@/components/routing/routing.js';
-import { AppRoute } from '@/libs/enums/enums.js';
+import { AppRoute } from '@/common/enums/enums.js';
 import { Dashboard } from '@/pages/dashboard/dashboard.js';
+import { RouterProvider } from '@/routes/routes.js';
 
 import { App } from './app.jsx';
 

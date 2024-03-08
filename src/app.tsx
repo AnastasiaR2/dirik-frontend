@@ -1,5 +1,5 @@
-import { RouterOutlet } from '@/components/routing/routing.js';
-import { NavigationMenu } from '@/views/views.js';
+import { NavigationMenu } from '@/components/components.js';
+import { RouterOutlet } from '@/routes/routes.js';
 
 const App: React.FC = () => {
   return (
