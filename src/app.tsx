@@ -1,12 +1,12 @@
-import { NavigationMenu } from '@/components/components.js';
-import { RouterOutlet } from '@/routes/routes.js';
+import { Route, Routes } from 'react-router-dom';
+
+import { AppRoute } from '@/common/enums/enums.js';
 
 const App: React.FC = () => {
   return (
-    <>
-      <NavigationMenu />
-      <RouterOutlet />
-    </>
+    <Routes>
+      <Route path={AppRoute.ROOT} />
+    </Routes>
   );
 };
 
