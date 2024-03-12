@@ -23,7 +23,7 @@ This is the repository responsible for Dirik's frontend.
 
 ## ⚙️ Technologies
 
-- [Express](https://expressjs.com/) — a frontend library.
+- [React](https://react.dev/) — a frontend library.
 - [Redux](https://redux.js.org/) + [Redux Toolkit](https://redux-toolkit.js.org/) — a state manager.
 
 ## 📝 Git Naming Conventions
