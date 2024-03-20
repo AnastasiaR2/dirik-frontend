@@ -1,0 +1,60 @@
+@import url("./variables.scss");
+
+.nav-box {
+  width: 352px;
+  height: 100%;
+  padding: 35px;
+  border: 0.2px solid var(--border-calor);
+  box-shadow: var(--main-shadow);
+}
+
+.nav-logo {
+  display: block;
+  max-width: 184px;
+  margin-bottom: 285px;
+}
+
+.nav-text {
+  margin-bottom: 15px;
+  margin-left: 15px;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.nav-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.nav-link {
+  display: flex;
+  gap: 10px;
+  max-width: 282px;
+  padding: 12px 20px 12px 15px;
+  border-radius: 16px;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+}
+
+.nav-link:hover,
+.nav-link:focus {
+  color: var(--teal);
+  background-color: var(--light-teal);
+}
+
+.nav-link:hover svg,
+.nav-link:focus svg {
+  fill: var(--teal);
+}
+
+.nav-link.focused {
+  color: var(--teal);
+  background-color: var(--light-teal);
+}
+
+.nav-link.focused svg {
+  fill: var(--teal);
+}

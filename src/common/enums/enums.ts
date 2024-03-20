@@ -1,1 +1,1 @@
-export { AppRoute } from './app-route.enum.js';
+export { AppRoute, icons } from './app-route.enum.js';
