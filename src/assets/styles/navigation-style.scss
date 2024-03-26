@@ -4,14 +4,23 @@
   width: 352px;
   height: 100%;
   padding: 35px;
-  border: 0.2px solid var(--border-calor);
+  border: 0.2px solid var(--border-color);
   box-shadow: var(--main-shadow);
 }
 
 .nav-logo {
-  display: block;
-  max-width: 184px;
-  margin-bottom: 285px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 295px;
+}
+
+.nav-logo-text {
+  font-size: 26px;
+  font-weight: 600;
+  color: #000000;
+  text-transform: capitalize;
+  letter-spacing: 0.07em;
 }
 
 .nav-text {
@@ -19,6 +28,8 @@
   margin-left: 15px;
   font-size: 14px;
   font-weight: 600;
+  color: #666666;
+  text-transform: uppercase;
   letter-spacing: 0.02em;
 }
 
@@ -33,28 +44,37 @@
   gap: 10px;
   max-width: 282px;
   padding: 12px 20px 12px 15px;
+  font-size: 20px;
+  font-weight: 400;
+  letter-spacing: 0.02em;
   border-radius: 16px;
   transition:
     background-color 0.3s ease,
-    color 0.3s ease;
+    color 0.3s ease,
+    font-weight 0.3s ease;
 }
 
 .nav-link:hover,
 .nav-link:focus {
-  color: var(--teal);
-  background-color: var(--light-teal);
+  color: #0b9eaf;
+  background-color: #a2d7dd;
+}
+
+.nav-link svg {
+  fill: #999999;
 }
 
 .nav-link:hover svg,
 .nav-link:focus svg {
-  fill: var(--teal);
+  fill: #0b9eaf;
 }
 
 .nav-link.focused {
-  color: var(--teal);
-  background-color: var(--light-teal);
+  font-weight: 600;
+  color: #0b9eaf;
+  background-color: #a2d7dd;
 }
 
 .nav-link.focused svg {
-  fill: var(--teal);
+  fill: #0b9eaf;
 }

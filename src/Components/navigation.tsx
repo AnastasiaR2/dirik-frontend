@@ -1,48 +1,45 @@
 import { useEffect, useState } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
 
-import { AppRoute, icons } from '@/common/enums/enums.js';
-
-import Logo from '../img/logo.png';
+import Logo from '@/assets/img/icons/logo-icon.svg';
+import { AppRoute } from '@/common/enums/enums.js';
+import { MenuItem } from '@/components/components.js';
 
 const menuItems = [
-  { route: AppRoute.ROOT, label: 'Поточна зміна' },
+  { route: AppRoute.ROOT, label: 'Дешборд' },
+  { route: AppRoute.CURRENTSHIFT, label: 'Поточна зміна' },
   { route: AppRoute.VISITS, label: 'Візити' },
-  { route: AppRoute.CHANGES, label: 'Зміни' },
-  { route: AppRoute.CASHDESK, label: 'Каса' },
-  { route: AppRoute.DASHBOARD, label: 'Дашборд' },
+  { route: AppRoute.SHIFTS, label: 'Зміни' },
+  { route: AppRoute.CASHBOX, label: 'Каса' },
 ];
 
 const Navigation: React.FC = () => {
-  const [focused, setFocused] = useState<string>('');
+  const [isFocused, setisFocused] = useState<string>('');
   const location = useLocation();
 
   useEffect(() => {
-    setFocused(location.pathname);
+    setisFocused(location.pathname);
   }, [location]);
 
   return (
     <div className="nav-box">
       <NavLink className="nav-logo" to={AppRoute.ROOT}>
-        <img src={Logo} alt="Logo Dirigible" />
+        <svg width={65} height={65}>
+          <use xlinkHref={`${Logo}#logo`} />
+        </svg>
+        <p className="nav-logo-text">Dirigible</p>
       </NavLink>
 
       <p className="nav-text">Меню</p>
 
       <ul className="nav-list">
         {menuItems.map((item) => (
-          <li key={item.route} className="nav-item">
-            <NavLink
-              className={`nav-link ${focused === item.route ? 'focused' : ''}`}
-              to={item.route}
-            >
-              <svg width={25} height={25}>
-                <use xlinkHref={`${icons[item.route]}#${item.label}`} />
-              </svg>
-
-              <p>{item.label}</p>
-            </NavLink>
-          </li>
+          <MenuItem
+            key={item.route}
+            route={item.route}
+            label={item.label}
+            isFocused={isFocused}
+          />
         ))}
       </ul>
     </div>

@@ -2,52 +2,47 @@ import { lazy } from 'react';
 import { Route, Routes } from 'react-router-dom';
 
 import { AppRoute } from '@/common/enums/enums.js';
-
-import { LayoutContainer } from './Components/layout-container.jsx';
+import { Layout } from '@/components/components.js';
 
 const Visits = lazy(() =>
-  import('./Components/visits.js').then((module) => {
-    return {
-      ...module,
-      default: module.Visits,
-    };
-  }),
+  import('@/components/visits.js').then((module) => ({
+    default: module.Visits,
+  })),
 );
-const Changes = lazy(() =>
-  import('./Components/changes.js').then((module) => {
-    return {
-      ...module,
-      default: module.Changes,
-    };
-  }),
+const Shifts = lazy(() =>
+  import('@/components/shifts.js').then((module) => ({
+    default: module.Shifts,
+  })),
 );
-const CashDesk = lazy(() =>
-  import('./Components/cash-desk.js').then((module) => {
-    return {
-      ...module,
-      default: module.CashDesk,
-    };
-  }),
+const CashBox = lazy(() =>
+  import('@/components/cashbox.js').then((module) => ({
+    default: module.CashBox,
+  })),
 );
-const Dashboard = lazy(() =>
-  import('./Components/dashboard.js').then((module) => {
-    return {
-      ...module,
-      default: module.Dashboard,
-    };
-  }),
+const CurrentShift = lazy(() =>
+  import('@/components/current-shift.js').then((module) => ({
+    default: module.CurrentShift,
+  })),
 );
 const App: React.FC = () => {
   return (
     <Routes>
-      <Route path={AppRoute.ROOT} element={<LayoutContainer />}>
+      <Route path={AppRoute.ROOT} element={<Layout />}>
+        <Route path={AppRoute.CURRENTSHIFT} element={<CurrentShift />} />
         <Route path={AppRoute.VISITS} element={<Visits />} />
-        <Route path={AppRoute.CHANGES} element={<Changes />} />
-        <Route path={AppRoute.CASHDESK} element={<CashDesk />} />
-        <Route path={AppRoute.DASHBOARD} element={<Dashboard />} />
+        <Route path={AppRoute.SHIFTS} element={<Shifts />} />
+        <Route path={AppRoute.CASHBOX} element={<CashBox />} />
       </Route>
 
-      <Route path="*" element={<h1>Something went wrong</h1>}></Route>
+      <Route
+        path={AppRoute.ANY}
+        element={
+          <h1>
+            Ой! Схоже, сторінка, до якої ви намагаєтеся отримати доступ, не
+            існує. Перевірте URL-адресу або поверніться на головну сторінку.
+          </h1>
+        }
+      ></Route>
     </Routes>
   );
 };
